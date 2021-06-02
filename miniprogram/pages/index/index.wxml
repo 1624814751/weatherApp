@@ -1,0 +1,12 @@
+<!--pages/index/index.wxml-->
+<view bindtap="dianji">
+  <view class="the-index">
+    <view class="logo">
+      <image class="img" src="../../images/logo.jpg"></image>
+    </view>
+    <view class="txt">
+      <view class="th">天气app</view>
+      <view class="des">不要着急,最好的东西总会在不经意间出现.</view>
+    </view>
+  </view>
+</view>

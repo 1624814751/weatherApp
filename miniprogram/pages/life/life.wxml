@@ -1,0 +1,86 @@
+<!--pages/life/life.wxml-->
+<view class="bg" style="opacity:{{0.9}}">
+    <image class="bg-image" mode="scaleToFill"></image>
+  </view>
+  <view class="bg2" style="opacity:{{0.9}}">
+    <image class="bg-image2" mode="scaleToFill" src="../../images/biankuang.jpg" mode="widthFix"></image>
+  </view>
+
+<view class="wea-describe">
+  <swiper class="life-swiper" vertical="true" autoplay="true" circular="true" interval="5000"
+    wx:if="{{lifestyleList.length>0}}">
+    <block wx:for='{{lifestyleList}}' wx:for-item='v' wx:key='k'>
+      <swiper-item class='li-item'>
+        <label class="ti">{{v.name}}：</label>
+        <label class="td">{{v.text}}</label>
+      </swiper-item>
+    </block>
+  </swiper>
+</view>
+
+<view class="wea-record">
+  <view class="rec-list" v-if='{{weekLong.length>0}}'>
+    <view wx:for="{{weekLong}}" wx:for-index="index" wx:key="key" wx:for-item="v" wx:if="{{index==0}}">
+      <view class="mok">
+        <view class="mok-tl">
+          <label class="k-t">日出</label>
+          <label class="k-d">{{v.sunrise}}</label>
+        </view>
+        <view class="mok-tr">
+          <label class="k-t">日落</label>
+          <label class="k-d">{{v.sunset}}</label>
+        </view>
+      </view>
+      <view class="mok">
+        <view class="mok-tl">
+          <label class="k-t">月升</label>
+          <label class="k-d">{{v.moonrise}}</label>
+        </view>
+        <view class="mok-tr">
+          <label class="k-t">月落</label>
+          <label class="k-d">{{v.moonset}}</label>
+        </view>
+      </view>
+      <view class="mok">
+        <view class="mok-tl">
+          <label class="k-t">降水量</label>
+          <label class="k-d">{{v.precip}}</label>
+        </view>
+        <view class="mok-tr">
+          <label class="k-t">云量</label>
+          <label class="k-d">{{v.cloud}}</label>
+        </view>
+      </view>
+      <view class="mok">
+        <view class="mok-tl">
+          <label class="k-t">风</label>
+          <label class="k-d">{{!isNight?v.windDirDay:v.windDirNight}}{{v.windSpeedNight}}公里/小时</label>
+        </view>
+        <view class="mok-tr">
+          <label class="k-t">相对湿度</label>
+          <label class="k-d">{{v.humidity}}</label>
+        </view>
+      </view>
+      <view class="mok">
+        <view class="mok-tl">
+          <label class="k-t">气压</label>
+          <label class="k-d">{{v.pressure}}百帕</label>
+        </view>
+        <view class="mok-tr">
+          <label class="k-t">体感温度</label>
+          <label class="k-d">{{weatherInfo.feelsLike}}摄氏度</label>
+        </view>
+      </view>
+      <view class="mok">
+        <view class="mok-tl">
+          <label class="k-t">能见度</label>
+          <label class="k-d">{{v.vis}}公里</label>
+        </view>
+        <view class="mok-tr">
+          <label class="k-t">紫外线指数</label>
+          <label class="k-d">{{v.uvIndex}}</label>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
